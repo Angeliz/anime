@@ -1,35 +1,43 @@
-# -*-coding:utf-8-*-
+
 import urllib2
 from bs4 import BeautifulSoup
+# from pyquery import PyQuery as pq
+# from lxml import etree
 
-# import sys
-# reload(sys)
-# sys.setdefaultencoding('utf8')
+import sys
+reload(sys)
+# sys.setdefaultencoding('utf-8')
+# type = sys.getfilesystemencoding()
 
 url = 'http://v.qq.com/x/list/cartoon?sort=18&offset=0&itype=-1&iarea=1'
-page = urllib2.urlopen(url).read().decode('utf-8')
-soup = BeautifulSoup(page, 'html.parser')
-# 以格式化的形式打印html
-# print(soup.prettify().encode('gbk', 'ignore'))
-soup = soup.prettify().encode('gbk', 'ignore')
+video_list = []
 def start_request(url):
-    list = soup.findAll(attrs={"class":"list_item"})
+    page = urllib2.urlopen(url).read()
+    # page = page.decode('utf-8').encode(type)
+    # print page
+    soup = BeautifulSoup(page, 'html.parser',  fromEncoding='gb18030')
+    # print soup.encode('gb18030')
+    # 以格式化的形式打印html
+    # # print(soup.prettify().encode('gbk', 'ignore'))
+    list = soup.findAll(attrs={"class": "list_item"})
+
+
+    # print (list)
     for item in list:
-        src = item.find(attrs={'class':'figure'})
-        name = item.find(attrs={'class':'figure'})
-        # src =$(item).children().first().attr('href');
-        # name =$('.figure_title', this).children().first().text();
-        # score =$('.score_l', this).text() +$('.score_s', this).text();
-        # count =$('.figure_count .num', this).text();
-        # // 集数
-        # var
-        # nums =$('.figure_info', this).text();
-        # videoList.push({
-        #     id: id,
-        #     name: name,
-        #     src: src,
-        #     nums: nums,
-        #     score: score,
-        #     count: count
-        # });
-print (list)
+        src = item.a['href']
+        name = item.find(attrs={"class": "figure_title"}).a.string
+        count = item.find(attrs={"class": "num"}).string
+        score = item.find(attrs={"class": "score_l"}).string + item.find(attrs={"class": "score_s"}).string
+        nums = item.find(attrs={"class": "figure_info"}).string
+        video_list.append({
+            # id: id,
+            'name': name.encode('gbk', 'ignore'),
+            'src': src,
+            'nums': nums,
+            'score': score,
+            'count': count
+        })
+        print video_list
+        break
+
+start_request(url)
