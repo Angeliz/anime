@@ -2,6 +2,7 @@
 async = require("async");
 var https=require('https');
 var cheerio=require('cheerio');
+var readline = require('readline');
 
 var tencent="tencent";
 var bilibili="bilibili";
@@ -18,7 +19,7 @@ var mysql=require('mysql');
 var connection= mysql.createConnection({
     host:'localhost',
     user:'root',
-    database:'cartoon'
+    database:'anime'
 });
 connection.connect(function (err) {
     if(err){
@@ -98,7 +99,7 @@ function startRequest(url,table) {
                 let list = $('.site-piclist').children();
                 list.each(function (index,item) {
                     let videoData=[];
-                    let src=$('.site-piclist_pic_link',this).attr('href');
+                    let src=$('.site-piclist_pic_link',this).attr('href').replace("http","https");
                     let name=$('.site-piclist_info_title ',this).children().first().text().split(" ").join("").replace("第1季","第一季").replace("第2季","第二季");
                     // 集数
                     let nums=$('.icon-vInfo',this).text().trim();
@@ -125,7 +126,7 @@ function startRequest(url,table) {
                 list.each(function (index,item) {
                     let videoData=[];
                     // console.log(item);'
-                    let src="http:"+$('.p-thumb',this).children().first().attr('href');
+                    let src="https:"+$('.p-thumb',this).children().first().attr('href');
                     let name=$('.title a',this).text().trim().split(" ").join("").replace("第1季","第一季").replace("第2季","第二季");
                     // 播放量
                     let play=$('.info-list',this).children().last().text().slice(0,-4).replace(",","");
@@ -142,7 +143,7 @@ function startRequest(url,table) {
                     }
                     // 集数
                     let nums=$('.p-time ',this).children().last().text();
-                    if(src!=="http:undefined"){
+                    if(src!=="https:undefined"){
                         let video={
                             name:name,
                             src:src,
@@ -171,12 +172,12 @@ function startRequest(url,table) {
                 for(let i=0;i<json.length;i++){
                     videoData.push([
                         json[i].title.split(" ").join("").replace("第1季","第一季").replace("第2季","第二季"),  //name
-                        json[i].url  //src
+                        json[i].url.replace("http","https") //src
                     ])
                 }
                 if(videoData!==[]){
                     insert(videoData,bilibili);
-                    console.log(videoData);
+                    // console.log(videoData);
                 }
                 page++;
                 let nextLink='https://bangumi.bilibili.com/web_api/season/index_cn?page='+page+"&page_size=40&version=0&is_finish=0&start_year=0&tag_id=&index_type=1&index_sort=0";
@@ -196,7 +197,32 @@ function startRequest(url,table) {
 fetchPage = function(url,table){
     startRequest(url,table);
 };
-// fetchPage(urlT,tencent);
-// fetchPage(urlI,iqiyi);
-// fetchPage(urlY,youku);
-// fetchPage(urlB,bilibili);
+
+var  rl = readline.createInterface({
+    input:process.stdin,
+    output:process.stdout
+});
+
+// question方法
+// rl.question("爬取第一层网页",function(input){
+//     if(input===tencent){
+//         fetchPage(urlT,tencent);
+//     }else if(input===iqiyi){
+//         fetchPage(urlI,iqiyi);
+//     }else if(input===youku){
+//         fetchPage(urlY,youku);
+//     }else if(input===bilibili){
+        fetchPage(urlB,bilibili);
+//     }else{
+//         console.log("input error");
+//     }
+//     // 不加close，则不会结束
+//     rl.close();
+// });
+//
+// // close事件监听
+// rl.on("close", function(){
+//     // 结束程序
+//     process.exit(0);
+// });
+
