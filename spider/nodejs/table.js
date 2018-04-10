@@ -12,7 +12,7 @@ var urlT='https://v.qq.com/x/list/cartoon?iarea=1&offset=0';
 var urlI='https://list.iqiyi.com/www/4/37-------------4-1-1-iqiyi--.html';
 var urlY='https://list.youku.com/category/show/c_100_a_%E5%A4%A7%E9%99%86_s_1_d_2_p_1.html?spm=a2h1n.8251845.0.0';
 var urlB='https://bangumi.bilibili.com/web_api/season/index_cn?page=1&page_size=40&version=0&is_finish=0&start_year=0&tag_id=&index_type=1&index_sort=0';
-var page=0;
+var page=1;
 
 // 连接数据库
 var mysql=require('mysql');
@@ -198,10 +198,10 @@ fetchPage = function(url,table){
     startRequest(url,table);
 };
 
-var  rl = readline.createInterface({
-    input:process.stdin,
-    output:process.stdout
-});
+// var  rl = readline.createInterface({
+//     input:process.stdin,
+//     output:process.stdout
+// });
 
 // question方法
 // rl.question("爬取第一层网页",function(input){
@@ -212,7 +212,7 @@ var  rl = readline.createInterface({
 //     }else if(input===youku){
 //         fetchPage(urlY,youku);
 //     }else if(input===bilibili){
-        fetchPage(urlB,bilibili);
+//         fetchPage(urlB,bilibili);
 //     }else{
 //         console.log("input error");
 //     }
@@ -226,3 +226,7 @@ var  rl = readline.createInterface({
 //     process.exit(0);
 // });
 
+// fetchPage(urlT,tencent);
+// fetchPage(urlI,iqiyi);
+// fetchPage(urlY,youku);
+fetchPage(urlB,bilibili);
