@@ -3,7 +3,7 @@ var https=require('https');
 var cheerio=require('cheerio');
 
 
-var id=618;
+var id=0;
 var tencentSrc=[];
 var bilibiliSrc=[];
 var iqiyiSrc=[];
@@ -87,20 +87,6 @@ function startRequest(url,table,tableSrc) {
                 tencentSpider(url,table,tableSrc,html,$);
             }else if(table===iqiyi){
                 iqiyiSpider(url,table,tableSrc,html,$);
-            // }else if(table===youku){
-            //     var description=$(".summary").text();
-            //     var name=$(".tvinfo h2 a").text().split(" ").join("").replace("第1季","第一季").replace("第2季","第二季");
-            //     var score=Number($(".score").text());
-            //     var labelList=$("span[data-sn='tags']").children('a');
-            //     var label="";
-            //     labelList.each(function (index,item) {
-            //         if(index===0){
-            //             label=$(item).text();
-            //         }else {
-            //             label=label+","+$(item).text();
-            //         }
-            //     });
-            //     videoData=[label,description,score,name];
             }else{
                 bilibiliSpider(url,table,tableSrc,html,$);
             }
@@ -139,10 +125,12 @@ function tencentSpider(url,table,tableSrc,html,$) {
 }
 
 function iqiyiSpider(url,table,tableSrc,html,$) {
-    // 正常情况
+    /*
+    *仍有一个失效的链接无法排除，需要中断一次
+    */
     var small=html.includes("block-D");
     // console.log(small);
-    if(!url.includes("a_")&&!url.includes("v_")){
+    if(!url.includes("a_")&&!url.includes("v_")){               //既不是列表也不是播放的页面，目前只发现一个，https://www.iqiyi.com/dongman/dmj2014.html#vfrm=2-4-0-1
         var nextLink= tableSrc[++id];
         console.log(nextLink);
         if(id<tableSrc.length){
@@ -151,7 +139,7 @@ function iqiyiSpider(url,table,tableSrc,html,$) {
             console.log("数据存储完毕");
             return 0;
         }
-    } else if(url.includes("a_")&&small){
+    } else if(url.includes("a_")&&small){                        // 出现最多的情况，列表形式，小图
         // console.log("1");
         var time=$(".sub_title").text();
         var script=$("script[src='//static.iqiyi.com/js/lib/sea1.2.js']").next().html().toString();
@@ -216,12 +204,12 @@ function iqiyiSpider(url,table,tableSrc,html,$) {
             });
         });
     } else{
-        if(url.includes("a_")&&!small){
+        if(url.includes("a_")&&!small){                         //列表形式，大图
             // console.log("2");
             var name=$("h1[itemprop='name'] a").text().split(" ").join("").replace("第1季","第一季").replace("第2季","第二季");
             var labelList=$("p[itemprop=\"genre\"] a[rseat=\"jj-zjxx-text-0923\"]");
             var description=$(".bigPic-b-jtxt").text();
-        }else if(url.includes("v_")){
+        } else if(url.includes("v_")){                           //播放形式
             // console.log("3");
             var labelList=$("#datainfo-taglist").children();
             var name=$("#widget-videotitle").text().split(" ").join("").replace("第1季","第一季").replace("第2季","第二季");

@@ -2,12 +2,12 @@
 async = require("async");
 var https=require('https');
 var cheerio=require('cheerio');
-var readline = require('readline');
+// var readline = require('readline');
 
 var tencent="tencent";
 var bilibili="bilibili";
 var iqiyi="iqiyi";
-var youku="youku";
+// var youku="youku";
 var urlT='https://v.qq.com/x/list/cartoon?iarea=1&offset=0';
 var urlI='https://list.iqiyi.com/www/4/37-------------4-1-1-iqiyi--.html';
 var urlY='https://list.youku.com/category/show/c_100_a_%E5%A4%A7%E9%99%86_s_1_d_2_p_1.html?spm=a2h1n.8251845.0.0';
@@ -197,34 +197,6 @@ function startRequest(url,table) {
 fetchPage = function(url,table){
     startRequest(url,table);
 };
-
-// var  rl = readline.createInterface({
-//     input:process.stdin,
-//     output:process.stdout
-// });
-
-// question方法
-// rl.question("爬取第一层网页",function(input){
-//     if(input===tencent){
-//         fetchPage(urlT,tencent);
-//     }else if(input===iqiyi){
-//         fetchPage(urlI,iqiyi);
-//     }else if(input===youku){
-//         fetchPage(urlY,youku);
-//     }else if(input===bilibili){
-//         fetchPage(urlB,bilibili);
-//     }else{
-//         console.log("input error");
-//     }
-//     // 不加close，则不会结束
-//     rl.close();
-// });
-//
-// // close事件监听
-// rl.on("close", function(){
-//     // 结束程序
-//     process.exit(0);
-// });
 
 // fetchPage(urlT,tencent);
 // fetchPage(urlI,iqiyi);
