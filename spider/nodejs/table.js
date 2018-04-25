@@ -19,7 +19,7 @@ var mysql=require('mysql');
 var connection= mysql.createConnection({
     host:'localhost',
     user:'root',
-    database:'anime'
+    database:'cartoon'
 });
 connection.connect(function (err) {
     if(err){
@@ -66,7 +66,8 @@ function startRequest(url,table) {
                     var videoData=[];
                     // console.log(item);'
                     var src=$(item).children().first().attr('href');
-                    var name=$('.figure_title',this).children().first().text().split(" ").join("").replace("第1季","第一季").replace("第2季","第二季");
+                    var name=$('.figure_title',this).children().first().text().split(" ").join("");
+                    name=name.replace("动态漫画","").replace("第1季","").replace("第2季","第二季").replace("第3季","第三季").replace("第4季","第四季").replace("第5季","第五季").replace("第6季","第六季").replace("：","").replace("-","").replace("·","").replace("黄泉之契","第二季");
                     // 评分
                     var score=Number($('.score_l',this).text()+$('.score_s',this).text());
                     // 播放量
@@ -201,4 +202,4 @@ fetchPage = function(url,table){
 // fetchPage(urlT,tencent);
 // fetchPage(urlI,iqiyi);
 // fetchPage(urlY,youku);
-fetchPage(urlB,bilibili);
+// fetchPage(urlB,bilibili);
