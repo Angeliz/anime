@@ -3,8 +3,6 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-// 按需引入element组件
-import {} from 'mdui'
 // 引用API文件
 import api from './api/index.js'
 // 将API方法绑定到全局

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/page/index'
+import OtherIndex from '@/otherpage/index'
 // import PoetCatalog from '@/page/poetcatalog'
 // import PoetRelation from '@/page/poetrelation'
 // import PoetWay from '@/page/poetway'
@@ -10,7 +11,7 @@ import Index from '@/page/index'
 // import PoemCard from '@/page/poemcard'
 // import SearchAll from '@/page/searchall'
 // import SearchModel from '@/page/searchmodel'
-// import Introduce from '@/page/introduce'
+import Introduce from '@/page/introduce'
 
 Vue.use(Router)
 
@@ -18,6 +19,10 @@ export default new Router({
   routes: [
     {
       path: '/',
+      component: OtherIndex
+    },
+    {
+      path: '/anime',
       component: Index
     // }, {
     //   path: '/poetcatalog',
@@ -46,9 +51,9 @@ export default new Router({
     // },{
     //   path: '/searchmodel',
     //   component: SearchModel
-    // },{
-    //   path: '/introduce',
-    //   component: Introduce
+    },{
+      path: '/anime/introduce',
+      component: Introduce
     }
   ]
 })

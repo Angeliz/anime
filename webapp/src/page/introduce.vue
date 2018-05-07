@@ -1,5 +1,8 @@
 <template>
-  <Appbar></Appbar>
+  <div>
+    <Appbar></Appbar>
+    <div>hello</div>
+  </div>
 </template>
 <script>
   import Appbar from '../components/Appbar.vue'
@@ -7,4 +10,3 @@
     components: {Appbar}
   }
 </script>
-
