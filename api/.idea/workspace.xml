@@ -26,18 +26,26 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file leaf-file-name="hello.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/hello.py">
+        <entry file="file://$PROJECT_DIR$/../flask/venv/hello.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4810">
-              <caret line="190" column="22" lean-forward="true" selection-start-line="190" selection-start-column="22" selection-end-line="190" selection-end-column="22" />
+            <state relative-caret-position="-989">
+              <caret line="16" column="52" lean-forward="false" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
               <folding>
-                <marker date="1525345555775" expanded="true" signature="662:728" ph="select time,... " />
-                <marker date="1525345555775" expanded="true" signature="1164:1215" ph="select * fro... three2" />
-                <marker date="1525345555775" expanded="true" signature="2023:2083" ph="select count... three2" />
-                <marker date="1525345555775" expanded="true" signature="2372:2425" ph="select * fro... three2" />
-                <marker date="1525345555775" expanded="true" signature="3193:3249" ph="select name,... three2" />
-                <marker date="1525345555775" expanded="true" signature="3568:3622" ph="select name,... three2" />
-                <marker date="1525345555775" expanded="true" signature="3941:3986" ph="select * fro... three2" />
+                <element signature="e#44#67#0" expanded="true" />
+                <element signature="e#826#1305#0" expanded="false" />
+                <element signature="e#1328#2122#0" expanded="false" />
+                <element signature="e#2141#2511#0" expanded="false" />
+                <element signature="e#2536#3332#0" expanded="false" />
+                <element signature="e#3357#3708#0" expanded="false" />
+                <element signature="e#3732#4083#0" expanded="false" />
+                <element signature="e#4105#4893#0" expanded="false" />
+                <marker date="1526031089726" expanded="true" signature="833:899" ph="select time,... " />
+                <marker date="1526031089726" expanded="true" signature="1335:1386" ph="select * fro... three2" />
+                <marker date="1526031089726" expanded="true" signature="2194:2254" ph="select count... three2" />
+                <marker date="1526031089726" expanded="true" signature="2543:2596" ph="select * fro... three2" />
+                <marker date="1526031089726" expanded="true" signature="3364:3420" ph="select name,... three2" />
+                <marker date="1526031089726" expanded="true" signature="3739:3793" ph="select name,... three2" />
+                <marker date="1526031089726" expanded="true" signature="4112:4157" ph="select * fro... three2" />
               </folding>
             </state>
           </provider>
@@ -79,6 +87,7 @@
         <option value="$PROJECT_DIR$/../../freekg/poemNLP/src/dic/process1.py" />
         <option value="$PROJECT_DIR$/../../freekg/poemNLP/src/dic/process0.py" />
         <option value="$PROJECT_DIR$/hello.py" />
+        <option value="$PROJECT_DIR$/../flask/venv/hello.py" />
       </list>
     </option>
   </component>
@@ -108,6 +117,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -120,7 +130,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -197,15 +206,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1525345555775" expanded="true" signature="662:728" ph="select time,... " />
-            <marker date="1525345555775" expanded="true" signature="1164:1215" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="2023:2083" ph="select count... three2" />
-            <marker date="1525345555775" expanded="true" signature="2372:2425" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="3193:3249" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3568:3622" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3941:3986" ph="select * fro... three2" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -229,15 +230,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1525345555775" expanded="true" signature="662:728" ph="select time,... " />
-            <marker date="1525345555775" expanded="true" signature="1164:1215" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="2023:2083" ph="select count... three2" />
-            <marker date="1525345555775" expanded="true" signature="2372:2425" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="3193:3249" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3568:3622" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3941:3986" ph="select * fro... three2" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -261,15 +254,79 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1525345555775" expanded="true" signature="662:728" ph="select time,... " />
-            <marker date="1525345555775" expanded="true" signature="1164:1215" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="2023:2083" ph="select count... three2" />
-            <marker date="1525345555775" expanded="true" signature="2372:2425" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="3193:3249" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3568:3622" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3941:3986" ph="select * fro... three2" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../spider/nodejs/table.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../spider/nodejs/xtable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../spider/nodejs/table.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../spider/nodejs/xtable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../spider/nodejs/table.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../spider/nodejs/xtable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -277,15 +334,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="16" column="56" lean-forward="false" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
-          <folding>
-            <marker date="1525345555775" expanded="true" signature="662:728" ph="select time,... " />
-            <marker date="1525345555775" expanded="true" signature="1164:1215" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="2023:2083" ph="select count... three2" />
-            <marker date="1525345555775" expanded="true" signature="2372:2425" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="3193:3249" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3568:3622" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3941:3986" ph="select * fro... three2" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -314,15 +363,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="16" column="56" lean-forward="false" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
-          <folding>
-            <marker date="1525345555775" expanded="true" signature="662:728" ph="select time,... " />
-            <marker date="1525345555775" expanded="true" signature="1164:1215" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="2023:2083" ph="select count... three2" />
-            <marker date="1525345555775" expanded="true" signature="2372:2425" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="3193:3249" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3568:3622" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3941:3986" ph="select * fro... three2" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -351,15 +392,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="16" column="56" lean-forward="false" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
-          <folding>
-            <marker date="1525345555775" expanded="true" signature="662:728" ph="select time,... " />
-            <marker date="1525345555775" expanded="true" signature="1164:1215" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="2023:2083" ph="select count... three2" />
-            <marker date="1525345555775" expanded="true" signature="2372:2425" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="3193:3249" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3568:3622" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3941:3986" ph="select * fro... three2" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -388,15 +421,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="16" column="56" lean-forward="false" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
-          <folding>
-            <marker date="1525345555775" expanded="true" signature="662:728" ph="select time,... " />
-            <marker date="1525345555775" expanded="true" signature="1164:1215" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="2023:2083" ph="select count... three2" />
-            <marker date="1525345555775" expanded="true" signature="2372:2425" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="3193:3249" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3568:3622" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3941:3986" ph="select * fro... three2" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -425,15 +450,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1525345555775" expanded="true" signature="662:728" ph="select time,... " />
-            <marker date="1525345555775" expanded="true" signature="1164:1215" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="2023:2083" ph="select count... three2" />
-            <marker date="1525345555775" expanded="true" signature="2372:2425" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="3193:3249" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3568:3622" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3941:3986" ph="select * fro... three2" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -441,15 +458,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1525345555775" expanded="true" signature="662:728" ph="select time,... " />
-            <marker date="1525345555775" expanded="true" signature="1164:1215" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="2023:2083" ph="select count... three2" />
-            <marker date="1525345555775" expanded="true" signature="2372:2425" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="3193:3249" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3568:3622" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3941:3986" ph="select * fro... three2" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -457,15 +466,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1525345555775" expanded="true" signature="662:728" ph="select time,... " />
-            <marker date="1525345555775" expanded="true" signature="1164:1215" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="2023:2083" ph="select count... three2" />
-            <marker date="1525345555775" expanded="true" signature="2372:2425" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="3193:3249" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3568:3622" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3941:3986" ph="select * fro... three2" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -473,15 +474,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1525345555775" expanded="true" signature="662:728" ph="select time,... " />
-            <marker date="1525345555775" expanded="true" signature="1164:1215" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="2023:2083" ph="select count... three2" />
-            <marker date="1525345555775" expanded="true" signature="2372:2425" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="3193:3249" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3568:3622" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3941:3986" ph="select * fro... three2" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -524,16 +517,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4810">
-          <caret line="190" column="22" lean-forward="true" selection-start-line="190" selection-start-column="22" selection-end-line="190" selection-end-column="22" />
+        <state relative-caret-position="-476">
+          <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../flask/venv/hello.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-989">
+          <caret line="16" column="52" lean-forward="false" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
           <folding>
-            <marker date="1525345555775" expanded="true" signature="662:728" ph="select time,... " />
-            <marker date="1525345555775" expanded="true" signature="1164:1215" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="2023:2083" ph="select count... three2" />
-            <marker date="1525345555775" expanded="true" signature="2372:2425" ph="select * fro... three2" />
-            <marker date="1525345555775" expanded="true" signature="3193:3249" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3568:3622" ph="select name,... three2" />
-            <marker date="1525345555775" expanded="true" signature="3941:3986" ph="select * fro... three2" />
+            <element signature="e#44#67#0" expanded="true" />
+            <element signature="e#826#1305#0" expanded="false" />
+            <element signature="e#1328#2122#0" expanded="false" />
+            <element signature="e#2141#2511#0" expanded="false" />
+            <element signature="e#2536#3332#0" expanded="false" />
+            <element signature="e#3357#3708#0" expanded="false" />
+            <element signature="e#3732#4083#0" expanded="false" />
+            <element signature="e#4105#4893#0" expanded="false" />
+            <marker date="1526031089726" expanded="true" signature="833:899" ph="select time,... " />
+            <marker date="1526031089726" expanded="true" signature="1335:1386" ph="select * fro... three2" />
+            <marker date="1526031089726" expanded="true" signature="2194:2254" ph="select count... three2" />
+            <marker date="1526031089726" expanded="true" signature="2543:2596" ph="select * fro... three2" />
+            <marker date="1526031089726" expanded="true" signature="3364:3420" ph="select name,... three2" />
+            <marker date="1526031089726" expanded="true" signature="3739:3793" ph="select name,... three2" />
+            <marker date="1526031089726" expanded="true" signature="4112:4157" ph="select * fro... three2" />
           </folding>
         </state>
       </provider>
