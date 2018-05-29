@@ -1,6 +1,6 @@
 // 配置API接口地址
-var root='http://www.freekg.cn/poet'
-// var root='/poet/datasource'
+// var root='http://www.freekg.cn/poet'
+var root='http://www.angeliz.info'
 // 引用axios
 var axios = require('axios')
 // 自定义判断元素类型JS

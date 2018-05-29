@@ -1,22 +1,18 @@
-#! python3
-#encoding:utf-8
-#encoding:utf8
+﻿#encoding:utf-8
 
 
 from flask import Flask
 from flask import jsonify
 import json
 import pymysql
-# import sys
+import sys
 import collections
 # from flask_cors import CORS
 # reload(sys)
 # sys.setdefaultencoding('utf8')
-import importlib
-importlib.reload(sys)
 
-# conn = pymysql.connect(host='127.0.0.1', port=3306, user='root', passwd='', db='anime', charset='utf8mb4')
-conn = pymysql.connect(host='hdm440659420.my3w.com', port=3306, user='hdm440659420', passwd='lq671615', db='hdm440659420_db', charset='utf8mb4')
+conn = pymysql.connect(host='127.0.0.1', port=3306, user='root', passwd='', db='anime', charset='utf8mb4')
+# conn = pymysql.connect(host='hdm440659420.my3w.com', port=3306, user='hdm440659420', passwd='lq671615', db='hdm440659420_db', charset='utf8mb4')
 cursor = conn.cursor()
 label_list = ['萌系', '搞笑', '热血', '催泪', '后宫', '机战', '基腐', '恋爱', '百合', '科幻', '奇幻', '推理', '音乐', '校园', '运动', '少女', '装逼',
               '智斗', '战斗', '日常', '魔法', '治愈', '声控', '泡面', '历史', '猎奇', '致郁', '美食', '少儿', '励志', '神魔', '轻改', '漫改', '原创',
@@ -39,7 +35,6 @@ def time():
         "code": "success",
         "data": list
     }
-    print (json.dumps(result))
     return json.dumps(result)
 
 def timeone(ti):
@@ -200,8 +195,8 @@ def index():
 
 @app.route('/anime/api/time')
 def time_():
-    return str(time().decode("gbk"))
-    # return str(time()).decode("unicode-escape")
+    return str(time()).decode("unicode-escape")
+    # return str(time())
 @app.route('/anime/api/time/<ti>')
 def timeone_(ti):
     return str(timeone(ti)).decode("unicode-escape")
