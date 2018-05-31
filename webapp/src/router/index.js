@@ -9,20 +9,20 @@ import OtherIndex from '@/otherpage/index'
 // import PoetInfo from '@/page/poetinfo'
 // import PoemInfo from '@/page/poeminfo'
 // import PoemCard from '@/page/poemcard'
-// import SearchAll from '@/page/searchall'
-// import SearchModel from '@/page/searchmodel'
+import Self from '@/page/self'
+import Time from '@/page/time'
 import Introduce from '@/page/introduce'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    // {
+    //   path: '/',
+    //   component: OtherIndex
+    // },
     {
       path: '/',
-      component: OtherIndex
-    },
-    {
-      path: '/anime',
       component: Index
     // }, {
     //   path: '/poetcatalog',
@@ -45,14 +45,14 @@ export default new Router({
     // },{
     //   path: '/poeminfo/:id',
     //   component: PoemInfo
-    // },{
-    //   path: '/searchall',
-    //   component: SearchAll
-    // },{
-    //   path: '/searchmodel',
-    //   component: SearchModel
     },{
-      path: '/anime/introduce',
+      path: '/self/:id',
+      component: Self
+    },{
+      path: '/time/:id',
+      component: Time
+    },{
+      path: '/introduce',
       component: Introduce
     }
   ]

@@ -11,8 +11,13 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/poet/datasource/**': {
-        target: 'http://www.freekg.cn', // 接口的域名
+      // '/poet/datasource/**': {
+      //   target: 'http://www.freekg.cn', // 接口的域名
+      //   secure: false,
+      //   changeOrigin: false,
+      // }
+      '/**': {
+        target: 'http://www.angeliz.info', // 接口的域名
         secure: false,
         changeOrigin: false,
       }

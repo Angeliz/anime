@@ -13,7 +13,7 @@
     },
     methods: {
       getData () {
-        this.$api.get('/test.php', null, r => {
+        this.$api.get('/test.php?type=time', null, r => {
           console.log(r);
         })
       }
