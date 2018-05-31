@@ -1,9 +1,9 @@
 ﻿<?php
 //header("content-Type: text/html; charset=utf-8");//字符编码设置
-$servername = "hdm440659420.my3w.com";
-$username = "hdm440659420";
-$password = "lq671615";
-$dbname = "hdm440659420_db";
+$servername = "";
+$username = "";
+$password = "";
+$dbname = "";
 
 // 创建连接
 $conn =new mysqli($servername, $username, $password, $dbname);
