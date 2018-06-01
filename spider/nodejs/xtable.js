@@ -3,15 +3,15 @@ var https=require('https');
 var cheerio=require('cheerio');
 
 
-var id=0;
+var id=225;
 var tencentSrc=[];
 var bilibiliSrc=[];
 var iqiyiSrc=[];
-var youkuSrc=[];
+// var youkuSrc=[];
 var tencent="tencent";
 var bilibili="bilibili";
 var iqiyi="iqiyi";
-var youku="youku";
+// var youku="youku";
 
 
 var mysql=require('mysql');
@@ -19,7 +19,7 @@ var mysql=require('mysql');
 var connection= mysql.createConnection({
     host:'localhost',
     user:'root',
-    database:'anime'
+    database:'cartoon'
 });
 connection.connect(function (err) {
     if(err){
@@ -55,12 +55,12 @@ function update(data,table) {
         // videoData=[time,label,description,play,score,name]
         var sql="update "+table+" set time=?,label=?,description=?,play=?,score=? where name=?";
         // console.log(sql);
-    }else if(table===youku){
-        // videoData=[label,description,score,name];
-        var sql="update "+table+" set label=?,description=?,score=? where name=?";
+    // }else if(table===youku){
+    //     // videoData=[label,description,score,name];
+    //     var sql="update "+table+" set label=?,description=?,score=? where name=?";
     }else if(table===bilibili){
         // var videoData=[time,nums,play,label,actor,description,name]
-        var sql="update "+table+" set time=?,nums=?,play=?,label=?,actor=?,description=? where name=?";
+        var sql="update "+table+" set time=?,score=?,play=?,label=?,actor=?,description=? where name=?";
     }else {
         console.log("update error");
     }
@@ -74,14 +74,17 @@ function update(data,table) {
 }
 
 function startRequest(url,table,tableSrc) {
+    if(table===bilibili){
+        url="https://www.bilibili.com/bangumi/media/md"+url;
+    }
     https.get(url,function (res) {
         var html='';
+
         res.setEncoding('utf-8');
         res.on('data',function (chunk) {
             html+=chunk;
         });
         res.on('end',function () {
-            // console.log("请求完成");
             var $ = cheerio.load(html);
             if(table===tencent){
                 tencentSpider(url,table,tableSrc,html,$);
@@ -95,7 +98,7 @@ function startRequest(url,table,tableSrc) {
 }
 
 function tencentSpider(url,table,tableSrc,html,$) {
-    var name=$('.player_title a').text().split(" ").join("").replace("第1季","第一季").replace("第2季","第二季");
+    var name=$('.player_title a').text().split(" ").join("").replace("动态漫画","").replace("第1季","").replace("第一季","").replace("第2季","第二季").replace("第3季","第三季").replace("第4季","第四季").replace("第5季","第五季").replace("第6季","第六季").replace("：","").replace("-","").replace("·","").replace("黄泉之契","第二季");
     var description=$('.summary').text().trim().split("\n").join("");
     var list=$('._video_tags').children('a');
     var time='';
@@ -162,7 +165,7 @@ function iqiyiSpider(url,table,tableSrc,html,$) {
                     if(index===0){
                         label=$(item).text();
                     }else {
-                        label=label+","+$(item).text();
+                        label=label+"，"+$(item).text();
                     }
                 });
                 var play=$("#widget-playcount").text().replace("次","");
@@ -183,7 +186,7 @@ function iqiyiSpider(url,table,tableSrc,html,$) {
                 if(description===''){
                     description=$("span[data-moreorless='lessinfo'] span").text().trim();
                 }
-                var name=$(".main_title a").text().split(" ").join("").replace("第1季","第一季").replace("第2季","第二季");
+                var name=$(".main_title a").text().split(" ").join("").replace("动态漫画","").replace("第1季","").replace("第一季","").replace("第2季","第二季").replace("第3季","第三季").replace("第4季","第四季").replace("第5季","第五季").replace("第6季","第六季").replace("：","").replace("-","").replace("·","").replace("黄泉之契","第二季");
                 videoData=[time,label,description,play,score,name];
                 // console.log(videoData);
                 if(videoData[videoData.length-1]!==""||videoData[0]!==''){
@@ -206,13 +209,13 @@ function iqiyiSpider(url,table,tableSrc,html,$) {
     } else{
         if(url.includes("a_")&&!small){                         //列表形式，大图
             // console.log("2");
-            var name=$("h1[itemprop='name'] a").text().split(" ").join("").replace("第1季","第一季").replace("第2季","第二季");
+            var name=$("h1[itemprop='name'] a").text().split(" ").join("").replace("动态漫画","").replace("第1季","").replace("第一季","").replace("第2季","第二季").replace("第3季","第三季").replace("第4季","第四季").replace("第5季","第五季").replace("第6季","第六季").replace("：","").replace("-","").replace("·","").replace("黄泉之契","第二季");
             var labelList=$("p[itemprop=\"genre\"] a[rseat=\"jj-zjxx-text-0923\"]");
             var description=$(".bigPic-b-jtxt").text();
         } else if(url.includes("v_")){                           //播放形式
             // console.log("3");
             var labelList=$("#datainfo-taglist").children();
-            var name=$("#widget-videotitle").text().split(" ").join("").replace("第1季","第一季").replace("第2季","第二季");
+            var name=$("#widget-videotitle").text().split(" ").join("").replace("动态漫画","").replace("第1季","").replace("第一季","").replace("第2季","第二季").replace("第3季","第三季").replace("第4季","第四季").replace("第5季","第五季").replace("第6季","第六季").replace("：","").replace("-","").replace("·","").replace("黄泉之契","第二季");
             var description=$("#datainfo-tag-desc").text().trim().split("\n").join("").replace(" ","");
         }
         var time=$("meta[itemprop='uploadDate']").attr("content").split("-")[0];
@@ -221,7 +224,7 @@ function iqiyiSpider(url,table,tableSrc,html,$) {
             if(index===0){
                 label=$(item).text();
             }else {
-                label=label+","+$(item).text();
+                label=label+"，"+$(item).text();
             }
             console.log("000000");
         });
@@ -269,17 +272,20 @@ function iqiyiSpider(url,table,tableSrc,html,$) {
 }
 
 function bilibiliSpider(url,table,tableSrc,html,$) {
-    var name=$(".info-title").text().split(" ").join("").replace("第1季","第一季").replace("第2季","第二季");
-    var labelList=$(".info-title").nextAll();
+    // console.log(html);
+    var name=$(".media-info-title-t").text().split(" ").join("").replace("动态漫画","").replace("第1季","").replace("第一季","").replace("第2季","第二季").replace("第3季","第三季").replace("第4季","第四季").replace("第5季","第五季").replace("第6季","第六季").replace("：","").replace("-","").replace("·","").replace("黄泉之契","第二季");
+    var score=Number($(".media-info-score-content").children().first().text());
+
+    var labelList=$(".media-tags").children();
     var label="";
     labelList.each(function (index,item) {
         if(index===0){
-            label=$("span",item).text();
+            label=$(item).text();
         }else {
-            label=label+","+$("span",item).text();
+            label=label+"，"+$(item).text();
         }
     });
-    var play=$(".info-count-item-play em").text();
+    var play=$(".media-info-count-item-play em").text();
     if(play.includes("万")){
         var playNum=Number(play.replace("万",""));
         play=playNum;
@@ -302,25 +308,32 @@ function bilibiliSpider(url,table,tableSrc,html,$) {
     if(isNaN(play)){
         play=0;
     }
-    var time=$(".info-update em").children().first().text().trim().slice(0,4);
-    var actorList=$(".info-cv em").children();
+    var time=$(".media-info-time").children().first().text().trim();
+    time=time.slice(0,time.indexOf("年"));
+    if(time.includes("19")){
+        time=time.slice(time.indexOf("19"),time.length);
+    }else{
+        time=time.slice(time.indexOf("20"),time.length);
+    }
+    // var actorList=$(".info-cv em").children();
     var actor="";
-    actorList.each(function (index,item) {
-        if(index===0){
-            actor=$(item).text().slice(1);
-        }else {
-            actor=actor+","+$(item).text().slice(1);
-        }
-    });
-    var description=$(".info-desc").text();
-    var nums=$("body").children().last().children().first().html();
-    nums=nums.slice(nums.indexOf("newestEp:")+9,nums.indexOf("isStarted")).trim().replace(",","").replace("\'","").replace("\'","");
-    var videoData=[time,nums,play,label,actor,description,name];
-    // console.log(videoData);
+    // actorList.each(function (index,item) {
+    //     if(index===0){
+    //         actor=$(item).text().slice(1);
+    //     }else {
+    //         actor=actor+"，"+$(item).text().slice(1);
+    //     }
+    // });
+    var description=html.slice(html.indexOf("\"evaluate\":\"")+12,html.indexOf("\"long_review\"")-2).replace(/\\n/g,"");
+    // var nums=$("body").children().last().children().first().html();
+    // nums=nums.slice(nums.indexOf("newestEp:")+9,nums.indexOf("isStarted")).trim().replace(",","").replace("\'","").replace("\'","");
+    // var nums=$(".media-info-time").children().last().text().trim();
+    var videoData=[time,score,play,label,actor,description,name];
+    console.log(videoData);
     if(videoData[videoData.length-1]!==""){
         update(videoData,table);
         var nextLink= tableSrc[++id];
-        console.log(nextLink);
+        // console.log(nextLink);
         if(id<tableSrc.length){
             startRequest(nextLink,table,tableSrc);
         }else{
@@ -352,12 +365,12 @@ fn = async function () {
     // await selectSrc(tencent,tencentSrc);
     // await fetchPage(tencent,tencentSrc);
 
-    await selectSrc(iqiyi,iqiyiSrc);
-    await fetchPage(iqiyi,iqiyiSrc);
+    // await selectSrc(iqiyi,iqiyiSrc);
+    // await fetchPage(iqiyi,iqiyiSrc);
 
     // await selectSrc(youku,youkuSrc);
     // await fetchPage(youku,youkuSrc);
 
-    // await selectSrc(bilibili,bilibiliSrc);
-    // await fetchPage(bilibili,bilibiliSrc);
+    await selectSrc(bilibili,bilibiliSrc);
+    await fetchPage(bilibili,bilibiliSrc);
 }();

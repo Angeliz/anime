@@ -10,9 +10,10 @@ var iqiyi="iqiyi";
 // var youku="youku";
 var urlT='https://v.qq.com/x/list/cartoon?iarea=1&offset=0';
 var urlI='https://list.iqiyi.com/www/4/37-------------4-1-1-iqiyi--.html';
-var urlY='https://list.youku.com/category/show/c_100_a_%E5%A4%A7%E9%99%86_s_1_d_2_p_1.html?spm=a2h1n.8251845.0.0';
-var urlB='https://bangumi.bilibili.com/web_api/season/index_cn?page=1&page_size=40&version=0&is_finish=0&start_year=0&tag_id=&index_type=1&index_sort=0';
-var page=1;
+// var urlY='https://list.youku.com/category/show/c_100_a_%E5%A4%A7%E9%99%86_s_1_d_2_p_1.html?spm=a2h1n.8251845.0.0';
+// var urlB='https://bangumi.bilibili.com/web_api/season/index_cn?page=1&page_size=40&version=0&is_finish=0&start_year=0&tag_id=&index_type=1&index_sort=0';
+var urlB='https://bangumi.bilibili.com/media/web_api/search/result?season_version=-1&is_finish=-1&copyright=-1&season_status=-1&pub_date=-1&style_id=-1&order=3&st=4&sort=0&page=1&season_type=4&pagesize=20'
+var page=0;
 
 // 连接数据库
 var mysql=require('mysql');
@@ -35,10 +36,10 @@ function insert (datalist,table) {
         addData = "insert into tencent(`name`,`src`,`nums`,`score`,`play`) values ?";
     }else if(table===iqiyi){
         addData = "insert into iqiyi(`name`,`src`,`nums`) values ?";
-    }else if(table===youku){
-        addData = "insert into youku(`name`,`src`,`nums`,`actor`,`play`) values ?";
+    // }else if(table===youku){
+    //     addData = "insert into youku(`name`,`src`,`nums`,`actor`,`play`) values ?";
     }else {
-        addData = "insert into bilibili(`name`,`src`) values ?";
+        addData = "insert into bilibili(`name`,`src`,`nums`) values ?";
     }
     connection.query(addData, [datalist], function (err, rows, fields) {
         if(err){
@@ -67,7 +68,7 @@ function startRequest(url,table) {
                     // console.log(item);'
                     var src=$(item).children().first().attr('href');
                     var name=$('.figure_title',this).children().first().text().split(" ").join("");
-                    name=name.replace("动态漫画","").replace("第1季","").replace("第2季","第二季").replace("第3季","第三季").replace("第4季","第四季").replace("第5季","第五季").replace("第6季","第六季").replace("：","").replace("-","").replace("·","").replace("黄泉之契","第二季");
+                    name=name.replace("动态漫画","").replace("第1季","").replace("第一季","").replace("第2季","第二季").replace("第3季","第三季").replace("第4季","第四季").replace("第5季","第五季").replace("第6季","第六季").replace("：","").replace("-","").replace("·","").replace("黄泉之契","第二季");
                     // 评分
                     var score=Number($('.score_l',this).text()+$('.score_s',this).text());
                     // 播放量
@@ -101,7 +102,7 @@ function startRequest(url,table) {
                 list.each(function (index,item) {
                     let videoData=[];
                     let src=$('.site-piclist_pic_link',this).attr('href').replace("http","https");
-                    let name=$('.site-piclist_info_title ',this).children().first().text().split(" ").join("").replace("第1季","第一季").replace("第2季","第二季");
+                    let name=$('.site-piclist_info_title ',this).children().first().text().split(" ").join("").replace("动态漫画","").replace("第1季","").replace("第一季","").replace("第2季","第二季").replace("第3季","第三季").replace("第4季","第四季").replace("第5季","第五季").replace("第6季","第六季").replace("：","").replace("-","").replace("·","").replace("黄泉之契","第二季");
                     // 集数
                     let nums=$('.icon-vInfo',this).text().trim();
                     let video={
@@ -122,58 +123,59 @@ function startRequest(url,table) {
                     console.log("iqiyi存储数据结束");
                     return 0;
                 }
-            }else if(table===youku){
-                let list = $('.panel').children();
-                list.each(function (index,item) {
-                    let videoData=[];
-                    // console.log(item);'
-                    let src="https:"+$('.p-thumb',this).children().first().attr('href');
-                    let name=$('.title a',this).text().trim().split(" ").join("").replace("第1季","第一季").replace("第2季","第二季");
-                    // 播放量
-                    let play=$('.info-list',this).children().last().text().slice(0,-4).replace(",","");
-                    if(play.includes("万")){
-                        var playNum=Number(play.replace("万",""));
-                        play=playNum;
-                    }else {
-                        play=Number(play)/10000;
-                    }
-                    // console.log(play);
-                    let actor=$('.actor',this).children().first().next().text()+","+$('.actor',this).children().first().next().next().text();
-                    if(actor===","){
-                        actor="";
-                    }
-                    // 集数
-                    let nums=$('.p-time ',this).children().last().text();
-                    if(src!=="https:undefined"){
-                        let video={
-                            name:name,
-                            src:src,
-                            nums:nums,
-                            actor:actor,
-                            play:play
-                        };
-                        videoData.push([video.name,video.src,video.nums,video.actor,video.play]);
-                        if(videoData!==[]){
-                            insert(videoData,youku);
-                        }
-                    }
-                });
-                let nextLink='https:'+$('.next a').attr('href');
-                nextLink=nextLink.replace("大陆","%E5%A4%A7%E9%99%86");
-                console.log(nextLink);
-                if(nextLink!=="https:undefined"){
-                    startRequest(nextLink,youku);
-                }else {
-                    console.log("youku数据存储完毕");
-                    return 0;
-                }
+            // }else if(table===youku){
+            //     let list = $('.panel').children();
+            //     list.each(function (index,item) {
+            //         let videoData=[];
+            //         // console.log(item);'
+            //         let src="https:"+$('.p-thumb',this).children().first().attr('href');
+            //         let name=$('.title a',this).text().trim().split(" ").join("").replace("第1季","第一季").replace("第2季","第二季");
+            //         // 播放量
+            //         let play=$('.info-list',this).children().last().text().slice(0,-4).replace(",","");
+            //         if(play.includes("万")){
+            //             var playNum=Number(play.replace("万",""));
+            //             play=playNum;
+            //         }else {
+            //             play=Number(play)/10000;
+            //         }
+            //         // console.log(play);
+            //         let actor=$('.actor',this).children().first().next().text()+","+$('.actor',this).children().first().next().next().text();
+            //         if(actor===","){
+            //             actor="";
+            //         }
+            //         // 集数
+            //         let nums=$('.p-time ',this).children().last().text();
+            //         if(src!=="https:undefined"){
+            //             let video={
+            //                 name:name,
+            //                 src:src,
+            //                 nums:nums,
+            //                 actor:actor,
+            //                 play:play
+            //             };
+            //             videoData.push([video.name,video.src,video.nums,video.actor,video.play]);
+            //             if(videoData!==[]){
+            //                 insert(videoData,youku);
+            //             }
+            //         }
+            //     });
+            //     let nextLink='https:'+$('.next a').attr('href');
+            //     nextLink=nextLink.replace("大陆","%E5%A4%A7%E9%99%86");
+            //     console.log(nextLink);
+            //     if(nextLink!=="https:undefined"){
+            //         startRequest(nextLink,youku);
+            //     }else {
+            //         console.log("youku数据存储完毕");
+            //         return 0;
+            //     }
             }else if(table===bilibili){
                 let videoData=[];
-                let json=JSON.parse(html).result.list;
+                let json=JSON.parse(html).result.data;
                 for(let i=0;i<json.length;i++){
                     videoData.push([
-                        json[i].title.split(" ").join("").replace("第1季","第一季").replace("第2季","第二季"),  //name
-                        json[i].url.replace("http","https") //src
+                        json[i].title.split(" ").join("").replace("动态漫画","").replace("第1季","").replace("第一季","").replace("第2季","第二季").replace("第3季","第三季").replace("第4季","第四季").replace("第5季","第五季").replace("第6季","第六季").replace("：","").replace("-","").replace("·","").replace("黄泉之契","第二季"),  //name
+                        json[i].media_id, //src
+                        json[i].index_show //nums
                     ])
                 }
                 if(videoData!==[]){
@@ -181,9 +183,10 @@ function startRequest(url,table) {
                     // console.log(videoData);
                 }
                 page++;
-                let nextLink='https://bangumi.bilibili.com/web_api/season/index_cn?page='+page+"&page_size=40&version=0&is_finish=0&start_year=0&tag_id=&index_type=1&index_sort=0";
+                // let nextLink='https://bangumi.bilibili.com/web_api/season/index_cn?page='+page+"&page_size=40&version=0&is_finish=0&start_year=0&tag_id=&index_type=1&index_sort=0";
+                let nextLink="https://bangumi.bilibili.com/media/web_api/search/result?season_version=-1&is_finish=-1&copyright=-1&season_status=-1&pub_date=-1&style_id=-1&order=3&st=4&sort=0&page="+page+"&season_type=4&pagesize=20"
                 console.log(nextLink,bilibili);
-                if(page<=10){
+                if(page<=21){
                     startRequest(nextLink,bilibili);
                 }else {
                     console.log("bilibili数据存储完毕");
@@ -202,4 +205,4 @@ fetchPage = function(url,table){
 // fetchPage(urlT,tencent);
 // fetchPage(urlI,iqiyi);
 // fetchPage(urlY,youku);
-// fetchPage(urlB,bilibili);
+fetchPage(urlB,bilibili);
