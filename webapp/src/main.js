@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+// import VueRouter from 'vue-router'
+
 // 引用API文件
 import api from './api/index.js'
 // 将API方法绑定到全局
@@ -42,12 +44,14 @@ Vue.component(Icon.name, Icon)
 Vue.component(Table.name, Table)
 Vue.component(TableColumn.name, TableColumn)
 
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  // VueRouter,
   router,
   components: { App },
   template: '<App/>'
-})
+});
 
 //公共css文件

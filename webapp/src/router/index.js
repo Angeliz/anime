@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/page/index'
+
 import OtherIndex from '@/otherpage/index'
 // import PoetCatalog from '@/page/poetcatalog'
 // import PoetRelation from '@/page/poetrelation'
@@ -8,12 +9,11 @@ import OtherIndex from '@/otherpage/index'
 // import PoetCard from '@/page/poetcard'
 // import PoetInfo from '@/page/poetinfo'
 // import PoemInfo from '@/page/poeminfo'
-// import PoemCard from '@/page/poemcard'
+import Label from '@/page/label'
 import Self from '@/page/self'
 import Time from '@/page/time'
 import Introduce from '@/page/introduce'
-
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
@@ -42,9 +42,9 @@ export default new Router({
     // },{
     //   path: '/poemcard',
     //   component: PoemCard
-    // },{
-    //   path: '/poeminfo/:id',
-    //   component: PoemInfo
+    },{
+      path: '/label/:id',
+      component: Label
     },{
       path: '/self/:id',
       component: Self

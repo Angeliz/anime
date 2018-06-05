@@ -36,9 +36,13 @@
     methods:{
       search(){
         if(this.input.includes("19")||this.input.includes("20")){
+//          window.location.replace("#/time/"+this.input);
           window.location.assign("#/time/"+this.input);
+//          window.location.href="http://www.angeliz.info/#/time/"+this.input;
         }else {
+//          window.location.replace("#/self/"+this.input);
           window.location.assign("#/self/"+this.input);
+//          window.location.href="http://www.angeliz.info/#/self/"+this.input;
         }
       }
     }
