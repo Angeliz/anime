@@ -7,7 +7,7 @@
           <div class="mdui-card" style="margin: 0 10px">
             <!-- 卡片的标题和副标题 -->
             <div class="mdui-card-primary">
-              <div class="mdui-card-primary-title" >{{this.namex}}</div>
+              <div class="mdui-card-primary-title" >{{this.$route.params.id}}</div>
               <div class="mdui-card-primary-subtitle" >{{this.time}}</div>
             </div>
             <!-- 卡片的内容 -->
@@ -53,8 +53,8 @@
     },
     methods: {
       getData () {
-//        this.list=[];
-//        this.time="";
+        this.list=[];
+        this.time="";
 //        console.log(this.$route.params.id);
         this.$api.get('/test.php?type=self&value='+this.$route.params.id, null, json=>{
           var playChart = echarts.init(document.getElementById("playChart"));
@@ -171,9 +171,7 @@
     },
     watch: {
       '$route'(to, from) {
-        console.log(to);
-        console.log(from);
-        console.log(this.$route.params.id);
+        this.getData();
       }
     }
   }

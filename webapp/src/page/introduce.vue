@@ -20,13 +20,15 @@
         </li>
         <li>后台
           <ul>
-            <li><code>PHP</code></li>
+            <li><code>PHP</code>版本</li>
+            <li><code>Python</code>版本</li>
           </ul>
         </li>
         <li>前端
           <ul>
             <li><code>Vue2</code>+<code>VueRouter2</code>+<code>Webpack</code>+<code>Axios</code></li>
             <li><code>MDUI</code>+<code>element UI</code></li>
+            <li>可视化：<code>Echarts</code></li>
           </ul>
         </li>
         <li>服务器
@@ -37,6 +39,10 @@
       </ul>
       <hr/>
       <h3>数据处理部分</h3>
+      <h4>最后更新</h4>
+      <ul>
+        <li>2018-06-01</li>
+      </ul>
       <h4>数据源</h4>
       <ul>
         <li>爬取
@@ -165,6 +171,12 @@
       </ul>
       <h4>数据清洗</h4>
       <ul>
+        <li>爬虫预处理
+          <ul>
+            <li>语法：正则表达式</li>
+            <li>语义：别名映射</li>
+          </ul>
+        </li>
         <li>优先级评估</li>
         <li>融合方式
           <ul>
@@ -185,7 +197,25 @@
       <ul>
         <li>文档目录结构
           <pre>
-
+      ├── api                     // 后台
+      │   ├── hello.py            // python版本
+      │   └── test.php            // php版本
+      ├── data                    // 数据备份
+      │   └── three2.sql          // 清洗后数据备份
+      ├── spider                  // 爬虫
+      │   ├── nodejs              // nodejs版本
+      │   │   ├── node_modules
+      │   │   ├── table.js
+      │   │   ├── xtabel.js
+      │   │   └── clean.js        // 数据清洗部分代码
+      ├── webapp                  // 前端
+      │   ├── build
+      │   ├── config
+      │   ├── dist
+      │   ├── node_modules
+      │   ├── src                 // 开发文件夹
+      │   ├── static              // 静态资源存储目录
+      │   └── index.html
           </pre>
         </li>
         <li>API接口
@@ -213,8 +243,8 @@
           </pre>
         </li>
       </ul>
-      <hr/>
-      <h3>写在后面</h3>
+      <!--<hr/>-->
+      <!--<h3>写在后面</h3>-->
     </div>
   </div>
 </template>
